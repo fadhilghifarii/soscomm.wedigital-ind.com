@@ -30,6 +30,7 @@ DB_PASSWORD=password(biasanya '')
 ## 5. Run Laravel ##
 - buka cmd/gitbash
 ```
+"cd C:\xampp\htdocs\GIT\namaprojeklaravel"
 php artisan serve
 ```
 
