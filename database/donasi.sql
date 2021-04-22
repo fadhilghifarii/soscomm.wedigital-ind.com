@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2021 at 09:44 AM
+-- Generation Time: Apr 22, 2021 at 08:53 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -87,6 +87,14 @@ CREATE TABLE `pantis` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pantis`
+--
+
+INSERT INTO `pantis` (`id`, `nama`, `pemilik`, `tipe`, `jenis`, `foto`, `alamat`, `deskripsi`, `kebutuhan`, `t_pria`, `t_wanita`, `akte`, `program`, `jml_pgrs`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'tes11', 'tes2', 'tes3', 'tes4', 'foto_1619047089_1.PNG', 'tes5', '<p>tes6</p>', 'tes7', 1, 2, 'akte_1619047089_2.PNG', 'Pendidikan', 3, '2021-04-21 16:18:09', '2021-04-21 23:56:21', NULL),
+(2, 'Baru', 'tes2', 'tes3', 'tes4', 'foto_1619049523_3.PNG', 'tess', '<p><strong style=\"margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span><br></p>', 'asd', 1, 2, 'akte_1619049523_4.PNG', 'Seni', 3, '2021-04-21 16:58:43', '2021-04-22 00:11:27', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -126,7 +134,7 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `programs` (
   `id` int(11) NOT NULL,
   `nama` varchar(200) NOT NULL,
-  `panti` varchar(200) NOT NULL,
+  `panti` int(11) NOT NULL,
   `ktg` varchar(50) NOT NULL,
   `foto` varchar(200) NOT NULL,
   `progres` bigint(20) NOT NULL,
@@ -157,9 +165,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('5IxDhuoDJPGhbJk74Svo0qJ5m8rAcpj2Dqsh25pp', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.42', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiYzdXSVJTWldiVWx3YTJqc2s1ejlmdkV2SDZXTU84dk1lZXV5Z1F1QyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCR1d2gxZ2NVU01ESTkuZ012N2dqZXguampsYWUuZnZEN1d3dC5URjk3SXBWNEg4Z1NvckVyLiI7fQ==', 1618990266),
-('85JpsYYr2IXWWE5vMkXk0ApZ0JQVMaSTDICz5GLV', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.39', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiNFNLQVZEeFZid05mZU5Qd0s0WlBycnVWOXBHSXhlRWo2RWRzQkVjZyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCR1d2gxZ2NVU01ESTkuZ012N2dqZXguampsYWUuZnZEN1d3dC5URjk3SXBWNEg4Z1NvckVyLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkdXdoMWdjVVNNREk5LmdNdjdnamV4LmpqbGFlLmZ2RDdXd3QuVEY5N0lwVjRIOGdTb3JFci4iO30=', 1618942616),
-('oSFPpubPYRaM6YUl2b3amW2EjwUTjCcqrjvxUEv9', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.39', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiOW1GeTNNMnpZTVJ4YnA3ckRQYzhCWm5CUjIwZjJMcjljN29hYUN6QyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkdXdoMWdjVVNNREk5LmdNdjdnamV4LmpqbGFlLmZ2RDdXd3QuVEY5N0lwVjRIOGdTb3JFci4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJHV3aDFnY1VTTURJOS5nTXY3Z2pleC5qamxhZS5mdkQ3V3d0LlRGOTdJcFY0SDhnU29yRXIuIjt9', 1618957150);
+('wHX8jIUwoot6G8iuI5UK3WXEZxBx6niLTn4H3PPD', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.42', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiQmg2VWlmYlhtdm1WaDJCZ1lmaFZyZ1FraEtQSlhrTXA2ZFdnRDJocSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9hZGQtcHJvZ3JhbS1kb25hc2kiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkdXdoMWdjVVNNREk5LmdNdjdnamV4LmpqbGFlLmZ2RDdXd3QuVEY5N0lwVjRIOGdTb3JFci4iO30=', 1619051039);
 
 -- --------------------------------------------------------
 
@@ -193,6 +199,7 @@ CREATE TABLE `users` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
+  `google_id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `hp` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `role` enum('admin','donatur') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'donatur',
@@ -207,8 +214,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `hp`, `role`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'alfikri alfikri', 'belintex8@gmail.com', NULL, '$2y$10$uwh1gcUSMDI9.gMv7gjex.jjlae.fvD7Wwt.TF97IpV4H8gSorEr.', NULL, 'admin', NULL, NULL, NULL, '2021-04-20 03:47:56', '2021-04-20 03:47:56');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `google_id`, `password`, `hp`, `role`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'alfikri alfikri', 'admin@gmail.com', NULL, NULL, '$2y$10$uwh1gcUSMDI9.gMv7gjex.jjlae.fvD7Wwt.TF97IpV4H8gSorEr.', NULL, 'admin', NULL, NULL, NULL, '2021-04-20 03:47:56', '2021-04-20 03:47:56'),
+(2, 'alfikri alfikri', 'tes@gmail.com', NULL, NULL, '$2y$10$uwh1gcUSMDI9.gMv7gjex.jjlae.fvD7Wwt.TF97IpV4H8gSorEr.', NULL, 'donatur', NULL, NULL, NULL, '2021-04-20 03:47:56', '2021-04-20 03:47:56');
 
 --
 -- Indexes for dumped tables
@@ -294,7 +302,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pantis`
 --
 ALTER TABLE `pantis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -318,7 +326,7 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
