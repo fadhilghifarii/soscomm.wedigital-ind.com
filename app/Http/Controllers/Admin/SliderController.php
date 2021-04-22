@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class SliderController extends Controller
 {
     public function index(){
-        return view('page.admin.input_slider');
+        $title = "Slider";
+
+        return view('page.admin.input_slider')->with(compact('title'));
     }
 }

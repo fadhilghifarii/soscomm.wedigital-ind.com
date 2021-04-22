@@ -104,7 +104,7 @@
                                                     <div class="card" style="width: 18rem;">
                                                             <i class="fa fa-facebook fa-5x mx-auto"></i>
                                                             <div class="card-body">
-                                                            <a href="detail_program_donasi.php"><h6 class="card-subtitle mb-2 text-muted text-center">Nama Program Donasi</h6></a>
+                                                            <a href="{{url('detail-program-donasi')}}"><h6 class="card-subtitle mb-2 text-muted text-center">Nama Program Donasi</h6></a>
                                                               <hr>
                                                               <p class="card-text">Deskripsi Program Donasi</p>
                                                              <a href="donasi.php"> <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Donasi</button></a>

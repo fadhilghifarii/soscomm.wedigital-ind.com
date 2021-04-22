@@ -47,15 +47,15 @@
                                           <h4 class="mb-4">Pilih Metode Pembayaran</h4>
                                         <div class="form-check mb-2">
                                             <input class="form-check-input mt-5" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                            <img src="smiling2.jpg" style="width: 200;">
+                                            <img src="{{asset('assets/images/smiling2.jpg')}}" style="width: 200px;">
                                           </div>
                                           <div class="form-check">
                                             <input class="form-check-input mt-5" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                            <img src="smiling2.jpg" style="width: 200;">
+                                            <img src="{{asset('assets/images/smiling2.jpg')}}" style="width: 200px;">
                                           </div>
                                           <div class="form-check mt-2">
                                             <input class="form-check-input mt-5" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                            <img src="smiling2.jpg" style="width: 200;">
+                                            <img src="{{asset('assets/images/smiling2.jpg')}}" style="width: 200px;">
                                           </div>
                                           <div class="form-check mt-3">
                                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -90,7 +90,12 @@
 
 @endsection
 @section('script')
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
 
 <script>
     //Get the button
@@ -112,5 +117,23 @@
                       document.body.scrollTop = 0;
                       document.documentElement.scrollTop = 0;
                     }
-                    </script>
+</script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBfrhxh00qjfJAen3lzczKWXnbMrFjP-bw",
+    authDomain: "donasi-3fa7c.firebaseapp.com",
+    projectId: "donasi-3fa7c",
+    storageBucket: "donasi-3fa7c.appspot.com",
+    messagingSenderId: "799253297295",
+    appId: "1:799253297295:web:e1338d48884c09095058fa",
+    measurementId: "G-FMG2WH33PM"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 @endsection

@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Gate;
 
 class DashboardController extends Controller
 {
-
     public function index(){
-        return view('page.admin.dashboard');
+        $title = "Dashboard";
+        return view('page.admin.dashboard')->with(compact('title'));
     }
 }

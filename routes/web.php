@@ -2,7 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Gate;
+
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DonaturController;
+use App\Http\Controllers\Admin\PantiController;
+use App\Http\Controllers\Admin\ProgramDonasiController;
+use App\Http\Controllers\Admin\SliderController;
+
 use App\Http\Controllers\Guest\IndexController;
 use App\Http\Controllers\Guest\ContactController;
 use App\Http\Controllers\Guest\AboutController;
@@ -40,16 +46,37 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     Route::get('/dashboard', [DashboardController::class, 'index']);
 // });
 
-Route::get('/', [IndexController::class, 'index']);
+Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/detail-program-donasi', [IndexController::class, 'detailProgramDonasi']);
+Route::get('/detail-panti-asuhan/{id}', [IndexController::class, 'detailProgramDonasi']);
+Route::get('/donasi', [IndexController::class, 'donasi']);
+
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/about-us', [AboutController::class, 'index']);
-Route::get('/detail-program-donasi', [AboutController::class, 'index']);
 Route::get('/view-program-donasi', [AboutController::class, 'index']);
-// Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/logged-in', [LoginController::class, 'loggedIn'])->name('logged-in');
 
 Route::prefix('admin')->middleware(['can:isAdmin'])->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/panti', [PantiController::class, 'index']);
+    Route::get('/add-panti', [PantiController::class, 'addPanti']);
+    Route::post('/add-panti-submit', [PantiController::class, 'addPantiSubmit'])->name('addpantisubmit');
+    Route::get('/edit-panti/{id}', [PantiController::class, 'editPanti']);
+    Route::post('/edit-panti-submit', [PantiController::class, 'editPantiSubmit']);
+
+
+    Route::get('/program-donasi', [ProgramDonasiController::class, 'index']);
+    Route::get('/add-program-donasi', [ProgramDonasiController::class, 'addProgramDonasi']);
+    Route::post('/add-program-donasi-submit', [ProgramDonasiController::class, 'addProgramDonasiSubmit']);
+    Route::get('/edit-program-donasi', [ProgramDonasiController::class, 'editProgramDonasi']);
+    Route::get('/edit-program-donasi-submit', [ProgramDonasiController::class, 'editProgramDonasiSubmit']);
+
+    Route::get('/donatur', [DonaturController::class, 'index']);
+
+    Route::get('/input-slider', [SliderController::class, 'index']);
 });
 
 

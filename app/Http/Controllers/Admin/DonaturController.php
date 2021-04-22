@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class DonaturController extends Controller
 {
     public function index(){
-        return view('page.admin.donatur');
+        $title = "Donatur";
+
+        return view('page.admin.donatur')->with(compact('title'));
     }
 }
