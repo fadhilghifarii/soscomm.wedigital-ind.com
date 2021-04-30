@@ -6,24 +6,53 @@
     <div class="container" style="margin-top: 5%;">
             <div id="demo" class="carousel slide" data-ride="carousel">
                     <ul class="carousel-indicators">
-                    <li data-target="#demo" data-slide-to="0" class="active"></li>
-                    <li data-target="#demo" data-slide-to="1"></li>
+                    @php
+                    $no=0;
+                    foreach ($slider as $s){
+                        if(!empty($s->slider)){
+                            if($no==0){
+                                echo '<li data-target="#demo" data-slide-to="'.$no++.'" class="active"></li>';
+                            }else{
+                                echo '<li data-target="#demo" data-slide-to="'.$no++.'"></li>';
+                            }
+                        }
+                    }
+                    @endphp
                     </ul>
                     <div class="carousel-inner text-center">
-                    <div class="carousel-item active">
-                        <img src="{{asset('assets/images/smiling.jpg')}}" alt="Los Angeles" width="900" height="500">
-                        <div class="carousel-caption">
-                        <h3>Los Angeles</h3>
-                        <p>We had such a great time in LA!</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{asset('assets/images/smiling2.jpg')}}" alt="Chicago" width="900" height="500">
-                        <div class="carousel-caption">
-                        <h3>Chicago</h3>
-                        <p>Thank you, Chicago!</p>
-                        </div>
-                    </div>
+                    @php
+                    $no=0;
+                    foreach ($slider as $s){
+                        if(!empty($s->slider)){
+                            if($no==0){
+                                $no++;
+                                echo '
+                                <div class="carousel-item active">
+                                    <a href="'.$s->link.'">
+                                        <img src="assets/images/slider/'.$s->slider.'" alt="'.$s->judul.'" width="900" height="500">
+                                    </a>
+                                    <div class="carousel-caption">
+                                    <h3>'.$s->judul.'</h3>
+                                    <p>'.$s->deskripsi.'</p>
+                                    </div>
+                                </div>
+                                ';
+                            }else{
+                                echo '
+                                <div class="carousel-item">
+                                    <a href="'.$s->link.'">
+                                        <img src="assets/images/slider/'.$s->slider.'" alt="'.$s->judul.'" width="900" height="500">
+                                    </a>
+                                    <div class="carousel-caption">
+                                    <h3>'.$s->judul.'</h3>
+                                    <p>'.$s->deskripsi.'</p>
+                                    </div>
+                                </div>
+                                ';
+                            }
+                        }
+                    }
+                    @endphp
                     </div>
                     <a class="carousel-control-prev carousel" href="#demo" data-slide="prev">
                       <i class="fa fa-caret-square-o-left" style="color: black; font-size: 150%;"></i>
@@ -107,7 +136,8 @@
                                                             <a href="{{url('detail-program-donasi')}}"><h6 class="card-subtitle mb-2 text-muted text-center">Nama Program Donasi</h6></a>
                                                               <hr>
                                                               <p class="card-text">Deskripsi Program Donasi</p>
-                                                             <a href="donasi.php"> <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Donasi</button></a>
+                                                             <a href="donasi.php"> <button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #fc3c3c;">Donasi</button></a>
+                                                            </div></a>
                                                             </div>
                                                           </div>
                                               </div>
@@ -118,7 +148,7 @@
                                                               <h6 class="card-subtitle mb-2 text-muted text-center">Card subtitle</h6>
                                                               <hr>
                                                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                              <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Button</button>
+                                                              <button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #fc3c3c;">Button</button>
                                                             </div>
                                                           </div>
                                               </div>
@@ -129,7 +159,7 @@
                                                               <h6 class="card-subtitle mb-2 text-muted text-center">Card subtitle</h6>
                                                               <hr>
                                                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                              <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Button</button>
+                                                              <button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #fc3c3c;">Button</button>
                                                             </div>
                                                           </div>
                                               </div>
@@ -147,7 +177,7 @@
                                                               <h6 class="card-subtitle mb-2 text-muted text-center">Nama Program Donasi</h6>
                                                               <hr>
                                                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                              <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Button</button>
+                                                              <button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #fc3c3c;">Button</button>
                                                             </div>
                                                           </div>
                                               </div>
@@ -158,7 +188,7 @@
                                                               <h6 class="card-subtitle mb-2 text-muted text-center">Card subtitle</h6>
                                                               <hr>
                                                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                              <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Button</button>
+                                                              <button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #fc3c3c;">Button</button>
                                                             </div>
                                                           </div>
                                               </div>
@@ -169,7 +199,7 @@
                                                               <h6 class="card-subtitle mb-2 text-muted text-center">Card subtitle</h6>
                                                               <hr>
                                                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                              <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Button</button>
+                                                              <button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #fc3c3c;">Button</button>
                                                             </div>
                                                           </div>
                                                           </div>
@@ -190,7 +220,7 @@
             </div>
               <div class="row">
                 <div class="col text-center mt-3">
-                  <a href="view_program_donasi.php"><button class="btn btn-primary">See More</button></a>
+                  <a href="view_program_donasi.php"><button class="btn btn-primary" style="background-color: #fc3c3c;">See More</button></a>
                 </div>
               </div>
             </div>
@@ -219,7 +249,6 @@
                                       <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                                       <hr>
                                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                      <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Button</button>
                                     </div>
                                   </div>
                       </div>
@@ -230,7 +259,6 @@
                                       <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                                       <hr>
                                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                      <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Button</button>
                                     </div>
                                   </div>
                       </div>
@@ -246,7 +274,6 @@
                                           <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                                           <hr>
                                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                          <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Button</button>
                                         </div>
                                       </div>
                           </div>
@@ -257,7 +284,6 @@
                                           <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                                           <hr>
                                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                          <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Button</button>
                                         </div>
                                       </div>
                           </div>
@@ -268,14 +294,13 @@
                                           <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                                           <hr>
                                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                          <button type="button" class="btn btn-primary btn-lg btn-block btn-dark">Button</button>
                                         </div>
                                       </div>
                           </div>
                         </div>
                         <div class="row">
                                 <div class="col text-center mt-2">
-                                  <a href="view_panti_asuhan.php"><button class="btn btn-primary">See More</button></a>
+                                  <a href="view_panti_asuhan.php"><button class="btn btn-primary" style="background-color: #fc3c3c;">See More</button></a>
                                 </div>
                               </div>
                       </div>

@@ -73,7 +73,7 @@
 
                                 <div class="form-row text-center">
                                         <div class="col mt-2">
-                                <button type="button" class="btn btn-sm btn-primary" href="#">Donasi</button>
+                                <button type="button" class="btn btn-sm btn-primary" href="#" style="background-color: #fc3c3c;">Donasi</button>
                                </div>
                             </div>
 

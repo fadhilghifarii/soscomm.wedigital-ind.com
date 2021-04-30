@@ -11,10 +11,8 @@
                        <a href="{{url('/admin/add-panti')}}"> <button type="button" class="btn btn-primary btn-sm">Add New Panti</button></a>
                       </div>
                       <div class="col-sm">
-                        One of three columns
                       </div>
                       <div class="col-sm">
-                        One of three columns
                       </div>
                     </div>
                   </div>
@@ -40,11 +38,11 @@
                               @endphp
                               <small class="text-muted">
                                   @php
-                                    if($diff->y!=0){echo $diff->y . ' tahun, ';}
-                                    if($diff->m!=0){echo $diff->m . ' bulan, ';}
-                                    if($diff->d!=0){echo $diff->d . ' hari, ';}
-                                    if($diff->h!=0){echo $diff->h . ' jam, ';}
-                                    if($diff->i!=0){echo $diff->i . ' menit ';}
+                                    if($diff->y!=0){echo $diff->y . ' tahun lalu';}
+                                    else if($diff->m!=0){echo $diff->m . ' bulan lalu';}
+                                    else if($diff->d!=0){echo $diff->d . ' hari lalu';}
+                                    else if($diff->h!=0){echo $diff->h . ' jam lalu';}
+                                    else if($diff->i!=0){echo $diff->i . ' menit lalu';}
                                   @endphp
                               </small>
                             </div>

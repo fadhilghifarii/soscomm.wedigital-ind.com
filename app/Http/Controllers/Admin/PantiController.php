@@ -12,7 +12,7 @@ class PantiController extends Controller
     private $title = "Panti";
     public function index(){
         $title = $this->title;
-        $panti = Panti::get();
+        $panti = Panti::orderBy('created_at', 'desc')->get();
         // $panti->deskripsi = \Illuminate\Support\Str::limit($panti->deskripsi, 50, $end='.......');
         return view('page.admin.panti')->with(compact('title','panti'));
     }

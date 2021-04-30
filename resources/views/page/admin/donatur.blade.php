@@ -4,7 +4,7 @@
                 <h3 class="mt-5">Donatur</h3>
                 <hr>
 
-                <a href="#"> <button type="button" class="btn btn-primary btn-sm mb-3">Add New Donatur</button></a>
+                {{-- <a href="#"> <button type="button" class="btn btn-primary btn-sm mb-3">Add New Donatur</button></a> --}}
                 <h6>List Donatur</h6>
                   <table class="table">
                     <thead class="thead-light">
@@ -13,38 +13,30 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Email</th>
                         <th scope="col">No Telepon</th>
-                        <th scope="col">Action</th>
+                        {{-- <th scope="col">Action</th> --}}
 
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>
-                            <a href="#"> <button type="button" class="btn btn-primary btn-sm mb-3">Delete</button></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>
-                            <a href="#"> <button type="button" class="btn btn-primary btn-sm mb-3">Delete</button></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Jhon</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>
-                            <a href="#"> <button type="button" class="btn btn-primary btn-sm mb-3">Delete</button></a>
-                        </td>
-                      </tr>
+                    @foreach ($user as $u)
+                    <tr>
+                      <th scope="row">{{$no++}}</th>
+                      <td>{{$u->name}}</td>
+                      <td>{{$u->email}}</td>
+                      <td>
+                        @php
+                        if(!empty($u->hp)){
+                            echo $u->hp;
+                        }else{
+                            echo "Tidak Ada";
+                        }
+                        @endphp
+                      </td>
+                      {{-- <td>
+                          <a href="#"> <a type="button" href="#" class="btn btn-primary btn-sm mb-3">Delete</a></a>
+                      </td> --}}
+                    </tr>
+                    @endforeach
                     </tbody>
                   </table>
             </main>

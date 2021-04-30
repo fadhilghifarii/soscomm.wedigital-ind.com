@@ -71,12 +71,13 @@ Route::prefix('admin')->middleware(['can:isAdmin'])->group(function () {
     Route::get('/program-donasi', [ProgramDonasiController::class, 'index']);
     Route::get('/add-program-donasi', [ProgramDonasiController::class, 'addProgramDonasi']);
     Route::post('/add-program-donasi-submit', [ProgramDonasiController::class, 'addProgramDonasiSubmit']);
-    Route::get('/edit-program-donasi', [ProgramDonasiController::class, 'editProgramDonasi']);
-    Route::get('/edit-program-donasi-submit', [ProgramDonasiController::class, 'editProgramDonasiSubmit']);
+    Route::get('/edit-program-donasi/{id}', [ProgramDonasiController::class, 'editProgramDonasi']);
+    Route::post('/edit-program-donasi-submit', [ProgramDonasiController::class, 'editProgramDonasiSubmit']);
 
     Route::get('/donatur', [DonaturController::class, 'index']);
 
     Route::get('/input-slider', [SliderController::class, 'index']);
+    Route::post('/input-slider-submit', [SliderController::class, 'inputSliderSubmit']);
 });
 
 

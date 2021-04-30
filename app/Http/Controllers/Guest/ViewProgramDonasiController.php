@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class ViewProgramDonasiController extends Controller
 {
     public function index(){
-        return view('page.view_program_donasi');
+        $title = "View Program Donasi";
+
+        return view('page.view_program_donasi')->with(compact('title'));
     }
 }

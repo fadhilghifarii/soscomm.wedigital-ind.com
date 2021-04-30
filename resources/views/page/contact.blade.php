@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="form-row">
                                         <div class="col mt-2">
-                                <button type="button" class="btn btn-sm btn-primary" href="#">Kirim Pesan</button>
+                                <button type="button" class="btn btn-sm btn-primary" href="#" style="background-color: #fc3c3c;">Kirim Pesan</button>
                                </div>
                             </div>
 
