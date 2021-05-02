@@ -26,10 +26,10 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 // return redirect(RouteServiceProvider::HOME);
                 if (Gate::allows('isAdmin')) {
-                    return redirect('/admin/dashboard');
+                    return redirect()->route('admin.dashboard');
                 }
                 if (Gate::allows('isDonatur')) {
-                    return redirect('/admin/profil');
+                    return redirect()->route('donatur.dashboard');
                 }
             }
         }

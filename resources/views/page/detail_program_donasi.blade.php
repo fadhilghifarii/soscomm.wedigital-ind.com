@@ -5,16 +5,18 @@
 
                 <div class="container">
                     <div class="py-5">
-                      <h2>Nama Program Donasi</h2>
-                      <p>Nama Panti :</p>
-                      <p>Kategori :</p>
-                      <img src="{{asset('assets/images/smiling.jpg')}}" class="img-fluid mb-2" alt="Responsive image">
+                      <h2>{{$p->nama}}</h2>
+                      <p>Nama Panti : {{$p->panti->nama}}</p>
+                      <p>Kategori : {{$p->ktg}}</p>
+                      <div style="display:  flex; justify-content: center;">
+                          <img src="{{asset('assets/images/program_donasi/'.$p->foto)}}" class="img-fluid mb-2" alt="Responsive image">
+                      </div>
 
 
                     </div>
 
                     <div class="row">
-                      <div class="col-md-4 order-md-2 mb-4">
+                      {{-- <div class="col-md-4 order-md-2 mb-4">
                         <h4 class="d-flex justify-content-between align-items-center mb-3">
                           <span class="text-muted">Donatur</span>
                         </h4>
@@ -50,21 +52,27 @@
                         </ul>
 
 
-                      </div>
+                      </div> --}}
 
 
-                      <div class="col-md-8 order-md-1">
-                        <h4 class="mb-3">Progres Realisasi :</h4>
+                      <div class="col-md-12 order-md-1">
+                        <h4 class="mb-3">Progres Realisasi :
+                        @php
+                            $real = ($p->progres/$p->target)*100;
+                            echo $real."%";
+                        @endphp
+                        </h4>
                         <hr>
-                        <h4 class="mb-3">Realisasi Terkumpul :</h4>
+                        <h4 class="mb-3">Realisasi Terkumpul : Rp {{ number_format($p->progres, 0, ',', '.') }}</h4>
                         <hr>
-                        <h4 class="mb-3">Dari Target :</h4>
+                        <h4 class="mb-3">Dari Target : Rp {{ number_format($p->target, 0, ',', '.') }}</h4>
                         <hr>
                         <h4 class="mb-3">Deskripsi :</h4>
+                        {!! $p->deskripsi !!}
                         <hr>
-                        <div class="text-center">
-                        <a href="{{url('/donasi')}}"><button class="btn btn-primary">Donasi</button></a>
-                      </div>
+                        <div class="text-center mb-3">
+                            <a href="{{url('/donasi')}}"><button class="btn btn-primary">Donasi</button></a>
+                        </div>
                       </div>
                     </div>
 

@@ -25,7 +25,7 @@
                         <div class="card mb-4 shadow-sm">
                           <img class="card-img-top" alt="Thumbnail [100%x225]" src="{{asset('assets/images/panti/'.$p->foto)}}" style="height: 225px; width: 100%; display: block;" >
                           <div class="card-body">
-                            <p class="card-text">{!! $p->deskripsi !!}</p>
+                            <p class="card-text">{!! \Illuminate\Support\Str::limit($p->deskripsi, 500, '...') !!}</p>
                             <div class="d-flex justify-content-between align-items-center">
                               <div class="btn-group">
                                <a href="{{url('/detail-panti-asuhan/'.$p->id)}}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>

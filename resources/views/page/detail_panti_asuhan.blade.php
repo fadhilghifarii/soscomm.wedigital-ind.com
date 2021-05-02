@@ -6,11 +6,13 @@
 
                 <div class="container">
                     <div class="py-5">
-                      <h2>Nama Panti Asuhan</h2>
-                      <p>Pemilik :</p>
-                      <p>Type :</p>
-                      <p>Jenis Yayasan :</p>
-                      <img src="smiling.jpg" class="img-fluid mb-2" alt="Responsive image">
+                      <h2>{{$pt->nama}}</h2>
+                      <p>Pemilik : {{$pt->pemilik}}</p>
+                      <p>Type : {{$pt->tipe}}</p>
+                      <p>Jenis Yayasan : {{$pt->jenis}}</p>
+                      <div style="display: flex;justify-content:center;">
+                        <img src="{{asset('assets/images/panti/'.$pt->foto)}}" class="img-fluid mb-2" alt="Responsive image">
+                      </div>
 
 
                     </div>
@@ -25,7 +27,7 @@
                                       <div class="d-flex justify-content-between align-items-center w-100">
                                         <strong class="text-gray-dark">Tag Kebutuhan</strong>
                                       </div>
-                                      <span class="d-block">Deskripsi Tag Kebutuhan</span>
+                                      <span class="d-block">{{$pt->kebutuhan}}</span>
                                     </div>
                                   </div>
 
@@ -37,7 +39,7 @@
                               <div class="d-flex justify-content-between align-items-center w-100">
                                 <strong class="text-gray-dark">Tag Program</strong>
                               </div>
-                              <span class="d-block">Deskripsi Tag Program</span>
+                              <span class="d-block">{{$pt->program}}</span>
                             </div>
                           </div>
 
@@ -50,7 +52,7 @@
                               <div class="d-flex justify-content-between align-items-center w-100">
                                 <strong class="text-gray-dark">Jumlah Pengurus</strong>
                               </div>
-                              <span class="d-block">123</span>
+                              <span class="d-block">{{$pt->jml_pgrs}}</span>
                             </div>
                           </div>
 
@@ -63,25 +65,24 @@
 
 
                       <div class="col-md-8 order-md-1">
-                        <h4 class="mb-3">Alamat :</h4>
+                        <h4 class="mb-3">Alamat : {{$pt->alamat}}</h4>
                         <hr>
                         <h4 class="mb-3">Deskripsi :</h4>
+                        {!!$pt->deskripsi!!}
                         <hr>
-                        <h4 class="mb-3">Dari Target :</h4>
-                        <hr>
-                        <h4 class="mb-3">Deskripsi :</h4>
-                        <hr>
-                        <h4 class="mb-3">Deskripsi Kebutuhan :</h4>
-                        <hr>
-                        <h4 class="mb-3">Deskripsi Program :</h4>
-                        <hr>
+                        {{-- <h4 class="mb-3">Dari Target :</h4>
+                        <hr> --}}
                         <h4 class="mb-3">Total Anak :</h4>
-                        <p>Laki - Laki : </p>
-                        <p>Perempuan : </p>
-                        <p>Jumlah Anak : </p>
+                        <p>Laki - Laki : {{$pt->t_pria}}</p>
+                        <p>Perempuan : {{$pt->t_wanita}}</p>
+                        <p>Jumlah Anak :
+                        @php
+                            echo ($pt->t_pria + $pt->t_wanita);
+                        @endphp
+                        </p>
                         <hr>
-                        <h4 class="mb-3">Akter Panti :</h4>
-                        <img src="smiling.jpg" class="img-thumbnail">
+                        <h4 class="mb-3">Akte Panti :</h4>
+                        <img src="{{asset('assets/images/akte/'.$pt->akte)}}" class="img-thumbnail">
 
 
                       </div>
