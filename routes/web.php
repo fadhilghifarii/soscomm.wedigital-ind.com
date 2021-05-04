@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DonaturController;
@@ -16,6 +15,7 @@ use App\Http\Controllers\Guest\ContactController;
 use App\Http\Controllers\Guest\AboutController;
 use App\Http\Controllers\Guest\LoginController;
 
+use App\Http\Controllers\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,15 +32,15 @@ use App\Http\Controllers\Guest\LoginController;
 //     return view('welcome');
 // });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    if (Gate::allows('isAdmin')) {
-        return redirect()->route('admin.dashboard');
-    } else if (Gate::allows('isDonatur')) {
-        return redirect()->route('donatur.dashboard');
-    } else {
-        return redirect('/');
-    }
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     if (Gate::allows('isAdmin')) {
+//         return redirect()->route('admin.dashboard');
+//     } else if (Gate::allows('isDonatur')) {
+//         return redirect()->route('donatur.dashboard');
+//     } else {
+//         return redirect('/');
+//     }
+// });
 
 // Route::prefix('admin')->middleware(['auth:sanctum', 'verified'])->group(function () {
 //     Route::get('/dashboard', [DashboardController::class, 'index']);
@@ -49,7 +49,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/detail-program-donasi/{id}', [IndexController::class, 'detailProgramDonasi']);
 Route::get('/detail-panti-asuhan/{id}', [IndexController::class, 'detailPantiAsuhan']);
-Route::get('/donasi', [IndexController::class, 'donasi']);
+Route::get('/donasi/{id}', [IndexController::class, 'donasi']);
+Route::post('/donasi-proses/{id}', [IndexController::class, 'donasiProses']);
+
 Route::get('/view-program-donasi', [IndexController::class, 'viewProgramDonasi']);
 Route::post('/view-program-donasi-search', [IndexController::class, 'viewProgramDonasiSearch']);
 Route::get('/view-panti-asuhan', [IndexController::class, 'viewPantiAsuhan']);
@@ -60,12 +62,22 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/about-us', [AboutController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index']);
-Route::post('/logged-in', [LoginController::class, 'loggedIn'])->name('logged-in');
+Route::post('/logged-in1', [LoginController::class, 'loggedIn']);
+// Route::post('/logged-in1', [LoginController::class, 'loggedIn'])->name('login');
+Route::get('/login/{id}', [LoginController::class, 'loginDonasi']);
+Route::post('/logged-in2/{id}', [LoginController::class, 'loggedInDonasi']);
+
+Route::get('/auth/redirect', [SocialController::class, 'redirect']);
+Route::get('/google/callback', [SocialController::class, 'callback']);
+
+// Route::get('auth/redirect', 'Auth\SocialController@redirect');
+// Route::get('auth/callback', 'Auth\SocialController@callback');
 
 Route::prefix('donatur')->middleware(['can:isDonatur'])->group(function () {
     Route::get('/', [ProfilController::class, 'index']);
     Route::get('/profil', [ProfilController::class, 'index']);
     Route::get('/dashboard', [ProfilController::class, 'index'])->name('donatur.dashboard');
+    Route::post('/ubah-profil', [ProfilController::class, 'ubahProfil']);
 });
 
 Route::prefix('admin')->middleware(['can:isAdmin'])->group(function () {

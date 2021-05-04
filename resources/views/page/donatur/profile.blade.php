@@ -22,31 +22,35 @@
 		<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
 			<div class="card h-100">
 				<div class="card-body">
+                    <form method="post" action="{{url('/donatur/ubah-profil')}}">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$u->id}}">
 					<div class="row gutters">
 						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 							<h6 class="mb-2 text-primary">Personal Details</h6> </div>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 							<div class="form-group">
 								<label for="fullName">Full Name</label>
-								<input type="text" value="{{$u->name}}" class="form-control" id="fullName" placeholder="Enter full name"> </div>
+								<input type="text" value="{{$u->name}}" name="name" class="form-control" id="fullName" placeholder="Enter full name" required> </div>
 						</div>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 							<div class="form-group">
 								<label for="eMail">Email</label>
-								<input type="email" value="{{$u->email}}" class="form-control" id="eMail" placeholder="Enter email ID"> </div>
+								<input type="email" value="{{$u->email}}" name="email" class="form-control" id="eMail" placeholder="Enter email ID" required> </div>
 						</div>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 							<div class="form-group">
 								<label for="phone">Phone</label>
-								<input type="text" value="{{$u->hp}}" class="form-control" id="phone" placeholder="Enter phone number"> </div>
+								<input type="text" value="{{$u->hp}}" name="hp" class="form-control" id="phone" placeholder="Enter phone number"> </div>
 						</div>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-4">
 							<div class="form-group">
 								{{-- <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button> --}}
-								<button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+								<button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
 							</div>
 						</div>
 					</div>
+                    </form>
 				</div>
 				<div class="card-body">
 					<div class="row gutters">

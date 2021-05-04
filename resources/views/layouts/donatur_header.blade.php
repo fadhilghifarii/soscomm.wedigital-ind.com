@@ -71,9 +71,9 @@
 
                 </div>
                 <div class="navbar-nav text-dark">
-                    <a href="index.php" class="nav-item nav-link active text-dark">Home</a>
-                    <a href="contact.php" class="nav-item nav-link text-dark">Contact Us</a>
-                    <a href="about.php" class="nav-item nav-link text-dark">About Us</a>
+                    <a href="{{url('/')}}" class="nav-item nav-link active text-dark">Home</a>
+                    <a href="{{url('/contact')}}" class="nav-item nav-link text-dark">Contact Us</a>
+                    <a href="{{url('/about-us')}}" class="nav-item nav-link text-dark">About Us</a>
                     <div class="nav-item dropdown text-dark">
                         <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown">Messages</a>
                         <div class="dropdown-menu">
@@ -82,7 +82,7 @@
                             <a href="#" class="dropdown-item">Drafts</a>
                         </div>
                     </div>
-                    <a href="#" class="nav-item nav-link text-dark">Logout</a>
+                    <a href="#" class="nav-item nav-link text-dark" id="logout">Logout</a>
                 </div>
             </div>
         </nav>
@@ -137,6 +137,23 @@
 
 
                 @yield('script')
+                <script>
+    $(document).ready(function(){
+        $('#logout').click(function(){
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'POST',
+                url: "{{ route('logout') }}",
+                success:function(res){
+                    console.log("loading...");
+                    window.location.href = "{{ route('home') }}";
+                }
+            })
+        })
+    })
+    </script>
                 <script>
                     //Get the button
                     var mybutton = document.getElementById("myBtn");

@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Mail\PermintaanDonasi;
 use App\Models\Panti;
 use App\Models\Program;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 
 class IndexController extends Controller
 {
@@ -78,10 +82,28 @@ class IndexController extends Controller
         // return response()->json($p);
     }
 
-    public function donasi()
+    public function donasi($id_program)
     {
-        $title = "Home";
+        $title = "Donasi";
 
-        return view('page.donasi');
+        return view('page.donasi')->with(compact('title', 'id_program'));
+    }
+
+    public function donasiProses($id, Request $r)
+    {
+        $details = [
+            'title' => 'admin@soscomm.org',
+            'body' => 'Silahkan Kirim donasi ke rek 123123 a/n SOSCOMM'
+        ];
+
+        if (Gate::allows('isDonatur')) {
+            Mail::to(Auth::user()->email)->send(new PermintaanDonasi($details));
+
+            return redirect()->back()->with('berhasil', Auth::user()->email);
+        }
+
+        Mail::to($r->email)->send(new PermintaanDonasi($details));
+
+        return redirect()->back()->with('berhasil', $r->email);
     }
 }

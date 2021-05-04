@@ -22,16 +22,25 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                // return redirect(RouteServiceProvider::HOME);
-                if (Gate::allows('isAdmin')) {
-                    return redirect()->route('admin.dashboard');
-                }
-                if (Gate::allows('isDonatur')) {
-                    return redirect()->route('donatur.dashboard');
-                }
-            }
+        // foreach ($guards as $guard) {
+        //     if (Auth::guard($guard)->check()) {
+        //         // return redirect(RouteServiceProvider::HOME);
+        //         if (Gate::allows('isAdmin')) {
+        //             // return redirect()->route('admin.dashboard');
+        //             return redirect('/admin/');
+        //         } else if (Gate::allows('isDonatur')) {
+        //             // return redirect()->route('donatur.dashboard');
+        //             return redirect('/donatur/');
+        //         }
+        //     }
+        // }
+
+        if (Gate::allows('isAdmin')) {
+            // return redirect()->route('admin.dashboard');
+            return redirect('/admin/');
+        } else if (Gate::allows('isDonatur')) {
+            // return redirect()->route('donatur.dashboard');
+            return redirect('/donatur/');
         }
 
         return $next($request);

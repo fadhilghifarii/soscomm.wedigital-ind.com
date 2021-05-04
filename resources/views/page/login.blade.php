@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Login</title>
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="http://localhost:8000/assets/css/login.css">
+  <link rel="stylesheet" href="{{asset('assets/css/login.css')}}">
 </head>
 <body>
   <main>
@@ -16,11 +17,19 @@
       <div class="row">
         <div class="col-sm-6 login-section-wrapper">
           <div class="brand-wrapper">
-            <img src="http://localhost:8000/assets/images/logo.svg" alt="logo" class="logo">
+            <img src="{{asset('assets/images/logo.svg')}}" alt="logo" class="logo">
           </div>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Log in</h1>
-            <form method="post" action="{{ route('logged-in') }}">
+            @php
+                if(isset($id_program)){
+                    echo '<form method="post" action="/logged-in2/'.$id_program.'">';
+                }
+                else{
+                    echo '<form method="post" action="/logged-in1">';
+                }
+            @endphp
+
                 @csrf
               <div class="form-group">
                 <label for="email">Email</label>
@@ -33,11 +42,11 @@
               <input name="login" id="login" class="btn btn-dark" type="submit" value="Login">
             </form>
             <a href="#!" class="forgot-password-link">Forgot password?</a>
-            <p class="login-wrapper-footer-text">Don't have an account? <a href="{{url('/donasi')}}" class="text-reset">Register here</a></p>
+            <p class="login-wrapper-footer-text">Don't have an account? <a href="{{url('/auth/redirect')}}" class="text-reset">Register with google</a></p>
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="http://localhost:8000/assets/images/login.jpg" alt="login image" class="login-img">
+          <img src="{{asset('assets/images/login.jpg')}}" alt="login image" class="login-img">
         </div>
       </div>
     </div>

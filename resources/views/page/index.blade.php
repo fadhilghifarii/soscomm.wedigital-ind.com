@@ -1,30 +1,64 @@
-@extends('layouts.guest_header') @section('content')
+@extends('layouts.guest_index_header')
+@section('content')
+
 <!--Slider-->
 <div class="pt-5" style="background-color:#F0F0F0; padding-bottom:1%;">
 	<div class="container" style="margin-top: 5%;">
 		<div id="demo" class="carousel slide" data-ride="carousel">
-			<ul class="carousel-indicators"> @php $no=0; foreach ($slider as $s){ if(!empty($s->slider)){ if($no==0){ echo '
-				<li data-target="#demo" data-slide-to="'.$no++.'" class="active"></li>'; }else{ echo '
-				<li data-target="#demo" data-slide-to="'.$no++.'"></li>'; } } } @endphp </ul>
-			<div class="carousel-inner text-center"> @php $no=0; foreach ($slider as $s){ if(!empty($s->slider)){ if($no==0){ $no++; echo '
-				<div class="carousel-item active"> <a href="'.$s->link.'">
+			<ul class="carousel-indicators">
+                @php
+                $no=0;
+                foreach ($slider as $s){
+                    if(!empty($s->slider)){
+                        if($no==0){
+                            echo '<li data-target="#demo" data-slide-to="'.$no++.'" class="active"></li>';
+                        }
+                        else{
+                            echo '<li data-target="#demo" data-slide-to="'.$no++.'"></li>';
+                        }
+                    }
+                }
+                @endphp
+                </ul>
+			<div class="carousel-inner text-center">
+                @php
+                $no=0;
+                foreach ($slider as $s){
+                    if(!empty($s->slider)){
+                        if($no==0){
+                            $no++;
+                            echo '<div class="carousel-item active">
+                                    <a href="'.$s->link.'">
                                         <img src="assets/images/slider/'.$s->slider.'" alt="'.$s->judul.'" width="900" height="500">
                                     </a>
-					<div class="carousel-caption">
-						<h3>'.$s->judul.'</h3>
-						<p>'.$s->deskripsi.'</p>
-					</div>
-				</div> '; }else{ echo '
-				<div class="carousel-item"> <a href="'.$s->link.'">
-                                        <img src="assets/images/slider/'.$s->slider.'" alt="'.$s->judul.'" width="900" height="500">
-                                    </a>
-					<div class="carousel-caption">
-						<h3>'.$s->judul.'</h3>
-						<p>'.$s->deskripsi.'</p>
-					</div>
-				</div> '; } } } @endphp </div>
-			<a class="carousel-control-prev carousel" href="#demo" data-slide="prev"> <i class="fa fa-caret-square-o-left" style="color: black; font-size: 150%;"></i> </a>
-			<a class="carousel-control-next" href="#demo" data-slide="next"> <i class="fa fa-caret-square-o-right" style="color: black; font-size: 150%;"></i> </a>
+                                    <div class="carousel-caption">
+                                        <h3>'.$s->judul.'</h3>
+                                        <p>'.$s->deskripsi.'</p>
+                                    </div>
+                                </div> ';
+                        }
+                        else{
+                            echo '
+                            <div class="carousel-item">
+                                <a href="'.$s->link.'">
+                                    <img src="assets/images/slider/'.$s->slider.'" alt="'.$s->judul.'" width="900" height="500">
+                                </a>
+                                <div class="carousel-caption">
+                                    <h3>'.$s->judul.'</h3>
+                                    <p>'.$s->deskripsi.'</p>
+                                </div>
+                            </div> ';
+                        }
+                    }
+                }
+                @endphp
+                </div>
+			<a class="carousel-control-prev carousel" href="#demo" data-slide="prev">
+                <i class="fa fa-caret-square-o-left" style="color: black; font-size: 150%;"></i>
+            </a>
+			<a class="carousel-control-next" href="#demo" data-slide="next">
+                <i class="fa fa-caret-square-o-right" style="color: black; font-size: 150%;"></i>
+            </a>
 		</div>
 	</div>
 </div>
@@ -104,9 +138,9 @@
                                     </a>
 									<hr>
 									<p class="card-text">{!! \Illuminate\Support\Str::limit($p->deskripsi, 500, '...') !!}</p>
-									<a href="donasi.php">
-										<button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #fc3c3c;">Donasi</button>
-									</a>
+
+										<a href="{{url('/donasi/'.$p->id)}}" class="btn btn-primary btn-lg btn-block" style="background-color: #fc3c3c;">Donasi</a>
+
 								</div>
 							</div>
 						</div>
@@ -141,9 +175,9 @@
                                 </a>
                                 <hr>
                                 <p class="card-text">{!! \Illuminate\Support\Str::limit($p->deskripsi, 500, '...') !!}</p>
-                                <a href="donasi.php">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #fc3c3c;">Donasi</button>
-                                </a>
+
+                                    <a href="{{url('/donasi/'.$p->id)}}" class="btn btn-primary btn-lg btn-block" style="background-color: #fc3c3c;">Donasi</a>
+
                             </div>
                         </div>
                     </div>
@@ -163,8 +197,10 @@
     @php
     if($program_count>3){
         echo '
-        <a class="carousel-control-prev" href="#demoi" data-slide="prev"> <span class="carousel-control-prev-icon bg-dark" style="margin-right: 50%;"></span> </a>
-	    <a class="carousel-control-next" href="#demoi" data-slide="next"> <span class="carousel-control-next-icon bg-dark" style="margin-left: 50%;"></span> </a>
+        <a class="carousel-control-prev" href="#demoi" data-slide="prev">
+        </a>
+	    <a class="carousel-control-next" href="#demoi" data-slide="next">
+        </a>
         ';
     }
     @endphp
