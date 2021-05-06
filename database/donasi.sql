@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2021 at 04:09 PM
+-- Generation Time: May 06, 2021 at 07:13 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `donasi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles`
+--
+
+CREATE TABLE `articles` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` longtext NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`id`, `judul`, `deskripsi`, `foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(3, 'Lorem Ipsum', '<div style=\"margin: 0px 14.4px 0px 28.8px; padding: 0px; width: 436.8px; float: left; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px;\"><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span><br></h2></div>', 'foto_1620318979_skj.png', '2021-05-06 17:02:00', '2021-05-06 17:02:00', NULL),
+(4, 'judul 2', '<p>deskripsi 2</p>', 'foto_1620320681_mmd.png', '2021-05-06 10:04:41', '2021-05-06 17:04:41', NULL),
+(5, 'judul 3', '<p>dekskripsi 3</p>', 'foto_1620320706_programming.png', '2021-05-06 10:05:06', '2021-05-06 17:05:06', NULL);
 
 -- --------------------------------------------------------
 
@@ -92,10 +117,13 @@ CREATE TABLE `pantis` (
 --
 
 INSERT INTO `pantis` (`id`, `nama`, `pemilik`, `tipe`, `jenis`, `foto`, `alamat`, `deskripsi`, `kebutuhan`, `t_pria`, `t_wanita`, `akte`, `program`, `jml_pgrs`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'tes11', 'tes2', 'tes3', 'tes4', 'foto_1619047089_1.PNG', 'tes5', '<p>tes6</p>', 'tes7', 1, 2, 'akte_1619047089_2.PNG', 'Pendidikan', 3, '2021-04-21 16:18:09', '2021-04-21 23:56:21', NULL),
-(2, 'Baru', 'tes2', 'tes3', 'tes4', 'foto_1619049523_3.PNG', 'tess', '<p><strong style=\"margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span><br></p>', 'asd', 1, 2, 'akte_1619049523_4.PNG', 'Seni', 3, '2021-04-21 16:58:43', '2021-04-22 00:11:27', NULL),
-(3, 'Baru 2', 'tes2', 'tes3', 'tes4', 'foto_1619049523_3.PNG', 'tess', '<p><strong style=\"margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span><br></p>', 'asd', 1, 2, 'akte_1619049523_4.PNG', 'Seni', 3, '2021-04-21 16:58:43', '2021-04-22 00:11:27', NULL),
-(4, 'Baru 3', 'tes2', 'tes3', 'tes4', 'foto_1619049523_3.PNG', 'tess', '<p><strong style=\"margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span><br></p>', 'asd', 1, 2, 'akte_1619049523_4.PNG', 'Seni', 3, '2021-04-21 16:58:43', '2021-04-22 00:11:27', NULL);
+(1, 'Baru 1', 'tes2', 'tes3', 'tes4', 'foto_1619047089_1.PNG', 'tes5', '<p>tes6</p>', 'tes7', 1, 2, 'akte_1619047089_2.PNG', 'Pendidikan', 3, '2021-04-21 16:18:09', '2021-04-21 23:56:21', NULL),
+(2, 'Baru 2', 'tes2', 'tes3', 'tes4', 'foto_1619049523_3.PNG', 'tess', '<p><strong style=\"margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span><br></p>', 'asd', 1, 2, 'akte_1619049523_4.PNG', 'Seni', 3, '2021-04-21 16:58:43', '2021-04-22 00:11:27', NULL),
+(3, 'Baru 3', 'tes2', 'tes3', 'tes4', 'foto_1619049523_3.PNG', 'tess', '<p><strong style=\"margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span><br></p>', 'asd', 1, 2, 'akte_1619049523_4.PNG', 'Seni', 3, '2021-04-21 16:58:43', '2021-04-22 00:11:27', NULL),
+(4, 'Baru 4', 'tes2', 'tes3', 'tes4', 'foto_1619049523_3.PNG', 'tess', '<p><strong style=\"margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span><br></p>', 'asd', 1, 2, 'akte_1619049523_4.PNG', 'Seni', 3, '2021-04-21 16:58:43', '2021-04-22 00:11:27', NULL),
+(5, 'Baru 5', 'tes2', 'tes3', 'tes4', 'foto_1619049523_3.PNG', 'tess', '<p><strong style=\"margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span><br></p>', 'asd', 1, 2, 'akte_1619049523_4.PNG', 'Seni', 3, '2021-04-21 16:58:43', '2021-04-22 00:11:27', NULL),
+(6, 'Baru 6', 'tes2', 'tes3', 'tes4', 'foto_1619049523_3.PNG', 'tess', '<p><strong style=\"margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span><br></p>', 'asd', 1, 2, 'akte_1619049523_4.PNG', 'Seni', 3, '2021-04-21 16:58:43', '2021-04-22 00:11:27', NULL),
+(7, 'Baru 7', 'tes2', 'tes3', 'tes4', 'foto_1619049523_3.PNG', 'tess', '<p><strong style=\"margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span><br></p>', 'asd', 1, 2, 'akte_1619049523_4.PNG', 'Seni', 3, '2021-04-21 16:58:43', '2021-04-22 00:11:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -152,10 +180,13 @@ CREATE TABLE `programs` (
 --
 
 INSERT INTO `programs` (`id`, `nama`, `panti_id`, `ktg`, `foto`, `progres`, `target`, `deskripsi`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Reseller Corona', 2, 'tes', 'programdonasi_1619358616_44682674e5a62026703846c4541bec1b.jpg', 200000, 1000000, '<h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h2><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><strong style=\"margin: 0px; padding: 0px;\">Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</p>', '2021-04-25 14:14:24', '2021-04-25 14:14:24', NULL),
+(1, 'Reseller Corona 1', 2, 'tes', 'programdonasi_1619358616_44682674e5a62026703846c4541bec1b.jpg', 200000, 1000000, '<h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h2><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><strong style=\"margin: 0px; padding: 0px;\">Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</p>', '2021-05-02 11:59:07', '2021-04-25 14:14:24', NULL),
 (2, 'Reseller Corona 2', 2, 'tes', 'programdonasi_1619358616_44682674e5a62026703846c4541bec1b.jpg', 200000, 1000000, '<h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h2><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><strong style=\"margin: 0px; padding: 0px;\">Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</p>', '2021-04-25 14:14:24', '2021-04-25 14:14:24', NULL),
 (3, 'Reseller Corona 3', 2, 'tes', 'programdonasi_1619358616_44682674e5a62026703846c4541bec1b.jpg', 200000, 1000000, '<h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h2><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><strong style=\"margin: 0px; padding: 0px;\">Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</p>', '2021-04-25 14:14:24', '2021-04-25 14:14:24', NULL),
-(4, 'Reseller Corona 4', 2, 'tes', 'programdonasi_1619358616_44682674e5a62026703846c4541bec1b.jpg', 200000, 1000000, '<h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h2><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><strong style=\"margin: 0px; padding: 0px;\">Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</p>', '2021-04-25 14:14:24', '2021-04-25 14:14:24', NULL);
+(4, 'Reseller Corona 4', 2, 'tes', 'programdonasi_1619358616_44682674e5a62026703846c4541bec1b.jpg', 200000, 1000000, '<h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h2><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><strong style=\"margin: 0px; padding: 0px;\">Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</p>', '2021-04-25 14:14:24', '2021-04-25 14:14:24', NULL),
+(5, 'Reseller Corona 5', 2, 'tes', 'programdonasi_1619358616_44682674e5a62026703846c4541bec1b.jpg', 200000, 1000000, '<h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h2><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><strong style=\"margin: 0px; padding: 0px;\">Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</p>', '2021-04-25 14:14:24', '2021-04-25 14:14:24', NULL),
+(6, 'Reseller Corona 6', 2, 'tes', 'programdonasi_1619358616_44682674e5a62026703846c4541bec1b.jpg', 200000, 1000000, '<h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h2><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><strong style=\"margin: 0px; padding: 0px;\">Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</p>', '2021-04-25 14:14:24', '2021-04-25 14:14:24', NULL),
+(7, 'Reseller Corona 7', 2, 'tes', 'programdonasi_1619358616_44682674e5a62026703846c4541bec1b.jpg', 200000, 1000000, '<h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h2><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><strong style=\"margin: 0px; padding: 0px;\">Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</p>', '2021-04-25 14:14:24', '2021-04-25 14:14:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -177,9 +208,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('2uAaYc0tAozhD5t42ILPfpO3LjVEtylfP9QlwnK8', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiN0dyYzNSU2xvdWcwQ3ZnRlpqdGdCb1g5ZkNXMGphOXZzT3JzS3RrNSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDM6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9kZXRhaWwtcHJvZ3JhbS1kb25hc2kiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkdXdoMWdjVVNNREk5LmdNdjdnamV4LmpqbGFlLmZ2RDdXd3QuVEY5N0lwVjRIOGdTb3JFci4iO30=', 1619557934),
-('3eNdSs51bGS33ZfdnGHymvtNWkjtM5mv05l7sMWj', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVWRSd0tJSTZObVlNMWkzNTJEd3BaaDMweExVdGw2OGN0cW92T1g5aiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1619617164),
-('Fjl3JNJKfvIHg71tGUcMK4D6oRoZ0Jgxq5yAPZ58', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.49', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoid1BTbFhKeXM5a0Nobk1NemxtcXZaNnk3a3kyZzFuVlJ4TjVUVEh5MSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1619789624);
+('WT6k7VEKaKFSzscnPE3qcQnYW1gPpEzjtuzHEBnG', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.51', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoibHJyMFo4bGJzZGpseW5jclF5NVM1WFl5YW55N0R0MXpDcWZuRmZNMiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcnRpY2xlIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJHV3aDFnY1VTTURJOS5nTXY3Z2pleC5qamxhZS5mdkQ3V3d0LlRGOTdJcFY0SDhnU29yRXIuIjt9', 1620321106);
 
 -- --------------------------------------------------------
 
@@ -203,8 +232,8 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `slider`, `judul`, `deskripsi`, `link`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'foto_slider1_1619550807_2.PNG', 'judul 1', 'desk 1', 'link 1', '2021-04-27 18:04:12', '2021-04-27 19:13:27', NULL),
-(2, 'foto_slider2_1619550807_6.PNG', 'judul 2', 'desk 2', 'link 2', '2021-04-27 18:04:12', '2021-04-27 19:13:27', NULL),
+(1, 'foto_slider1_1620319703_foto_slider1_1619935592_background penyambutan.jpg', 'judul 1', 'desk 1', 'link 1', '2021-04-27 18:04:12', '2021-05-06 16:48:23', NULL),
+(2, 'foto_slider2_1620319703_foto_slider2_1619935680_Background penyambutan mahasiswa PASCA.jpg', 'judul 2', 'desk 2', 'link 2', '2021-04-27 18:04:12', '2021-05-06 16:48:23', NULL),
 (3, NULL, NULL, NULL, NULL, '2021-04-27 18:04:12', NULL, NULL),
 (4, NULL, NULL, NULL, NULL, '2021-04-27 18:04:12', NULL, NULL);
 
@@ -217,10 +246,10 @@ INSERT INTO `sliders` (`id`, `slider`, `judul`, `deskripsi`, `link`, `created_at
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `google_id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `google_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `hp` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `role` enum('admin','donatur') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'donatur',
   `two_factor_secret` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -236,11 +265,18 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `google_id`, `password`, `hp`, `role`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'alfikri alfikri', 'admin@gmail.com', NULL, NULL, '$2y$10$uwh1gcUSMDI9.gMv7gjex.jjlae.fvD7Wwt.TF97IpV4H8gSorEr.', NULL, 'admin', NULL, NULL, NULL, '2021-04-20 03:47:56', '2021-04-20 03:47:56'),
-(2, 'alfikri alfikri', 'tes@gmail.com', NULL, NULL, '$2y$10$uwh1gcUSMDI9.gMv7gjex.jjlae.fvD7Wwt.TF97IpV4H8gSorEr.', NULL, 'donatur', NULL, NULL, NULL, '2021-04-20 03:47:56', '2021-04-20 03:47:56');
+(2, 'alfikri', 'tes@gmail.com', NULL, NULL, '$2y$10$uwh1gcUSMDI9.gMv7gjex.jjlae.fvD7Wwt.TF97IpV4H8gSorEr.', '082391123123', 'donatur', NULL, NULL, NULL, '2021-04-20 03:47:56', '2021-05-02 15:38:55'),
+(16, '18-137_ALFIKRI', 'belintex8@gmail.com', NULL, '104141461893087330649', '$2y$10$ucpasoK8eg5rAX7L1RZh/O/jkg40zNIR2XWjhvyXA9Kb5lRjwvEgC', NULL, 'donatur', NULL, NULL, NULL, '2021-05-03 13:00:51', '2021-05-03 13:00:51');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `articles`
+--
+ALTER TABLE `articles`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -307,6 +343,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `articles`
+--
+ALTER TABLE `articles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -322,7 +364,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pantis`
 --
 ALTER TABLE `pantis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -334,7 +376,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `programs`
 --
 ALTER TABLE `programs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sliders`
@@ -346,7 +388,7 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
