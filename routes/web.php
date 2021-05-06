@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DonaturController;
 use App\Http\Controllers\Admin\PantiController;
 use App\Http\Controllers\Admin\ProgramDonasiController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\ArticleController;
 
 use App\Http\Controllers\Donatur\ProfilController;
 
@@ -54,8 +55,13 @@ Route::post('/donasi-proses/{id}', [IndexController::class, 'donasiProses']);
 
 Route::get('/view-program-donasi', [IndexController::class, 'viewProgramDonasi']);
 Route::post('/view-program-donasi-search', [IndexController::class, 'viewProgramDonasiSearch']);
+
 Route::get('/view-panti-asuhan', [IndexController::class, 'viewPantiAsuhan']);
 Route::post('/view-panti-asuhan-search', [IndexController::class, 'viewPantiAsuhanSearch']);
+
+Route::get('/article', [IndexController::class, 'article']);
+Route::get('/detail-article/{id}', [IndexController::class, 'detailArticle']);
+Route::post('/article-search', [IndexController::class, 'articleSearch']);
 
 Route::get('/contact', [ContactController::class, 'index']);
 
@@ -101,4 +107,10 @@ Route::prefix('admin')->middleware(['can:isAdmin'])->group(function () {
 
     Route::get('/input-slider', [SliderController::class, 'index']);
     Route::post('/input-slider-submit', [SliderController::class, 'inputSliderSubmit']);
+
+    Route::get('/article', [ArticleController::class, 'index']);
+    Route::get('/add-article', [ArticleController::class, 'addArticle']);
+    Route::post('/add-article-submit', [ArticleController::class, 'addArticleSubmit']);
+    Route::get('/edit-article/{id}', [ArticleController::class, 'editArticle']);
+    Route::post('/edit-article-submit', [ArticleController::class, 'editArticleSubmit']);
 });

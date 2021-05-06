@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Mail\PermintaanDonasi;
+use App\Models\Article;
 use App\Models\Panti;
 use App\Models\Program;
 use App\Models\Slider;
@@ -105,5 +106,32 @@ class IndexController extends Controller
         Mail::to($r->email)->send(new PermintaanDonasi($details));
 
         return redirect()->back()->with('berhasil', $r->email);
+    }
+
+    public function article()
+    {
+        $title = "Semua Panti Asuhan";
+
+        $article = Article::orderBy('id', 'desc')->get();
+
+        return view('page.article')->with(compact('title', 'article'));
+    }
+
+    public function articleSearch(Request $r)
+    {
+        $title = "Search Article";
+
+        $article = Article::where('judul', 'like', '%' . $r->judul . '%')->get();
+
+        return view('page.article')->with(compact('title', 'article'));
+    }
+
+    public function detailArticle($id)
+    {
+        $title = "Detail Article";
+
+        $a = Article::where('id', $id)->get()[0];
+
+        return view('page.article_detail')->with(compact('title', 'a'));
     }
 }

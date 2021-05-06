@@ -66,7 +66,7 @@
 <div class="container" style="margin-top:2%;">
 	<div class="row text-center">
 		<div class="col-sm">
-			<div class="card" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
+			<div class="card mx-auto" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
 				<div class="card-body">
 					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
 					<hr>
@@ -75,7 +75,7 @@
 			</div>
 		</div>
 		<div class="col-sm">
-			<div class="card" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
+			<div class="card mx-auto" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
 				<div class="card-body">
 					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
 					<hr>
@@ -84,7 +84,7 @@
 			</div>
 		</div>
 		<div class="col-sm">
-			<div class="card" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
+			<div class="card mx-auto" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
 				<div class="card-body">
 					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
 					<hr>
@@ -93,7 +93,7 @@
 			</div>
 		</div>
 		<div class="col-sm">
-			<div class="card" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
+			<div class="card mx-auto" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
 				<div class="card-body">
 					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
 					<hr>

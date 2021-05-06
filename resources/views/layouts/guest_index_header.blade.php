@@ -68,6 +68,7 @@
             </div>
             <div class="navbar-nav">
                 <a href="{{url('/')}}" class="nav-item nav-link active" style="color:#717585;">Home</a>
+                <a href="{{url('/article')}}" class="nav-item nav-link" style="color:#717585;">Article</a>
                 <a href="{{url('/contact')}}" class="nav-item nav-link" style="color:#717585;">Contact Us</a>
                 <a href="{{url('/about-us')}}" class="nav-item nav-link" style="color:#717585;">About Us</a>
                 <div class="nav-item dropdown" style="color:#717585;">

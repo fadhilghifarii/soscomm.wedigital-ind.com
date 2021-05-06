@@ -38,7 +38,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/admin/input-slider')}}">Slider</a>
-                          </li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/admin/article')}}">Article</a>
+                        </li>
                       </ul>
 
                 </div>
