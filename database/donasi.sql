@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2021 at 07:13 PM
+-- Generation Time: May 13, 2021 at 10:44 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `donasi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_rekenings`
+--
+
+CREATE TABLE `admin_rekenings` (
+  `id` int(11) NOT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  `bank` varchar(255) DEFAULT NULL,
+  `nama` varchar(255) DEFAULT NULL,
+  `norek` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin_rekenings`
+--
+
+INSERT INTO `admin_rekenings` (`id`, `foto`, `bank`, `nama`, `norek`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'foto1_1620931244_mmd.png', 'BRI', 'nama 1', '1231231', '2021-05-13 18:40:44', '2021-05-13 18:40:44', NULL),
+(2, 'foto2_1620931244_programming.png', 'MANDIRI', 'nama 2', '1231232', '2021-05-13 18:40:44', '2021-05-13 18:40:44', NULL),
+(3, 'foto3_1620931244_skj.png', 'BNI', 'nama 3', '1231233', '2021-05-13 18:40:44', '2021-05-13 18:40:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -42,9 +68,9 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `judul`, `deskripsi`, `foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(3, 'Lorem Ipsum', '<div style=\"margin: 0px 14.4px 0px 28.8px; padding: 0px; width: 436.8px; float: left; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><h2 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px;\"><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span><br></h2></div>', 'foto_1620318979_skj.png', '2021-05-06 17:02:00', '2021-05-06 17:02:00', NULL),
-(4, 'judul 2', '<p>deskripsi 2</p>', 'foto_1620320681_mmd.png', '2021-05-06 10:04:41', '2021-05-06 17:04:41', NULL),
-(5, 'judul 3', '<p>dekskripsi 3</p>', 'foto_1620320706_programming.png', '2021-05-06 10:05:06', '2021-05-06 17:05:06', NULL);
+(3, 'Lorem Ipsum', '<p><span style=\"text-align: justify; text-indent: -18.9333px;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span></p><p><span style=\"text-align: justify; text-indent: -18.9333px;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span></p><p><span style=\"text-align: justify; text-indent: -18.9333px;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span><span style=\"text-align: justify; text-indent: -18.9333px;\"><br></span><span style=\"text-align: justify; text-indent: -18.9333px;\"><br></span><br></p>', 'foto_1620318979_skj.png', '2021-05-06 18:29:03', '2021-05-06 18:29:03', NULL),
+(4, 'judul 2', '<p><span style=\"text-align: justify; text-indent: -18.9333px;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span><span style=\"text-align: justify; text-indent: -18.9333px; font-size: 1rem;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span><span style=\"text-align: justify; text-indent: -18.9333px; font-size: 1rem;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span><span style=\"text-align: justify; text-indent: -18.9333px; font-size: 1rem;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span><br></p>', 'foto_1620320681_mmd.png', '2021-05-06 18:29:36', '2021-05-06 18:29:36', NULL),
+(5, 'judul 3', '<p><span style=\"text-align: justify; text-indent: -18.9333px;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span><span style=\"text-align: justify; text-indent: -18.9333px; font-size: 1rem;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span><span style=\"text-align: justify; text-indent: -18.9333px; font-size: 1rem;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span><span style=\"text-align: justify; text-indent: -18.9333px; font-size: 1rem;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span><span style=\"text-align: justify; text-indent: -18.9333px; font-size: 1rem;\">Islam mengajarkan agar umatanya menjadi yang terbaik, yaitu saling mengenal, memahami, menghargai, mengaisihi, dan bahkan saling tolong menolong dalam kebaikan. Coba beri penjelasan kiat apa saja yang harus dilakukan agar kerukunan antar umat beragama tetap terjaga…!</span><br></p>', 'foto_1620320706_programming.png', '2021-05-06 18:29:20', '2021-05-06 18:29:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -208,7 +234,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('WT6k7VEKaKFSzscnPE3qcQnYW1gPpEzjtuzHEBnG', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.51', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoibHJyMFo4bGJzZGpseW5jclF5NVM1WFl5YW55N0R0MXpDcWZuRmZNMiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcnRpY2xlIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJHV3aDFnY1VTTURJOS5nTXY3Z2pleC5qamxhZS5mdkQ3V3d0LlRGOTdJcFY0SDhnU29yRXIuIjt9', 1620321106);
+('QmflH1y5bylkNiq8Kp3U9nzs2l3JBHuwZQjQtNB2', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiRzhzNm9DMzZHMW9jQmpmcm81Q3hqeTlSSFp1RW1WcDdJRkk0NkhobiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9hY2MtZG9uYXNpIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJHV3aDFnY1VTTURJOS5nTXY3Z2pleC5qamxhZS5mdkQ3V3d0LlRGOTdJcFY0SDhnU29yRXIuIjt9', 1620938211);
 
 -- --------------------------------------------------------
 
@@ -240,6 +266,31 @@ INSERT INTO `sliders` (`id`, `slider`, `judul`, `deskripsi`, `link`, `created_at
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transaksis`
+--
+
+CREATE TABLE `transaksis` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `status` enum('belum','acc') NOT NULL DEFAULT 'belum',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaksis`
+--
+
+INSERT INTO `transaksis` (`id`, `user_id`, `program_id`, `jumlah`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 17, 7, 10000, 'belum', '2021-05-13 12:43:01', '2021-05-13 19:43:01', NULL),
+(3, 17, 7, 12000, 'acc', '2021-05-13 20:31:10', '2021-05-13 20:31:10', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -266,11 +317,17 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `google_id`, `password`, `hp`, `role`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'alfikri alfikri', 'admin@gmail.com', NULL, NULL, '$2y$10$uwh1gcUSMDI9.gMv7gjex.jjlae.fvD7Wwt.TF97IpV4H8gSorEr.', NULL, 'admin', NULL, NULL, NULL, '2021-04-20 03:47:56', '2021-04-20 03:47:56'),
 (2, 'alfikri', 'tes@gmail.com', NULL, NULL, '$2y$10$uwh1gcUSMDI9.gMv7gjex.jjlae.fvD7Wwt.TF97IpV4H8gSorEr.', '082391123123', 'donatur', NULL, NULL, NULL, '2021-04-20 03:47:56', '2021-05-02 15:38:55'),
-(16, '18-137_ALFIKRI', 'belintex8@gmail.com', NULL, '104141461893087330649', '$2y$10$ucpasoK8eg5rAX7L1RZh/O/jkg40zNIR2XWjhvyXA9Kb5lRjwvEgC', NULL, 'donatur', NULL, NULL, NULL, '2021-05-03 13:00:51', '2021-05-03 13:00:51');
+(17, 'alfikri', 'belintex8@gmail.com', NULL, NULL, '$2y$10$uwh1gcUSMDI9.gMv7gjex.jjlae.fvD7Wwt.TF97IpV4H8gSorEr.', '082391123123', 'donatur', NULL, NULL, NULL, '2021-04-20 03:47:56', '2021-05-02 15:38:55');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin_rekenings`
+--
+ALTER TABLE `admin_rekenings`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `articles`
@@ -332,6 +389,12 @@ ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `transaksis`
+--
+ALTER TABLE `transaksis`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -341,6 +404,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin_rekenings`
+--
+ALTER TABLE `admin_rekenings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `articles`
@@ -385,10 +454,16 @@ ALTER TABLE `sliders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `transaksis`
+--
+ALTER TABLE `transaksis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
