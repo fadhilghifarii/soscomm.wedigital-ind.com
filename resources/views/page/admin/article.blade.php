@@ -21,7 +21,7 @@
             <div class="card mb-4 shadow-sm">
                <img class="card-img-top" alt="Thumbnail [100%x225]" src="{{asset('assets/images/article/'.$a->foto)}}" style="height: 225px; width: 100%; display: block;" >
                <div class="card-body">
-                  <p class="card-text">{!! \Illuminate\Support\Str::limit($a->deskripsi, 500, '...') !!}</p>
+                  <p class="card-text mx-auto">{!! \Illuminate\Support\Str::limit($a->deskripsi, 500, '...') !!}</p>
                   <div class="d-flex justify-content-between align-items-center">
                      <div class="btn-group">
                         <a href="{{url('/detail-article/'.$a->id)}}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>

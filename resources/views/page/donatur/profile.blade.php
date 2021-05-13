@@ -68,39 +68,27 @@
 							</tr>
 						</thead>
 						<tbody>
+                            <?php $no=1; ?>
+                            @foreach ($transaksi as $t)
 							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>...</td>
-								<td>...</td>
+								<th scope="row">{{$no++}}</th>
+								<td>{{$t->program->panti->nama}}</td>
+								<td>{{$t->program->nama}}</td>
+								<td>Rp.{{$t->jumlah}}</td>
+                                @if ($t->status=="belum")
 								<td>
-									<a href="#">
+									<a href="{{url('/donatur/donasi-delete/'.$t->id)}}">
 										<button type="button" class="btn btn-primary btn-sm mb-3">Delete</button>
 									</a>
 								</td>
+                                @endif
 							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Jacob</td>
-								<td>...</td>
-								<td>...</td>
-								<td>
-									<a href="#">
-										<button type="button" class="btn btn-primary btn-sm mb-3">Delete</button>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>Jhon</td>
-								<td>...</td>
-								<td>...</td>
-								<td>
-									<a href="#">
-										<button type="button" class="btn btn-primary btn-sm mb-3">Delete</button>
-									</a>
-								</td>
-							</tr>
+                            @endforeach
+                            @if ($c_transaksi==0)
+                            <tr>
+                                <td colspan="5" align="center">Belum ada History Donasi</td>
+                            </tr>
+                            @endif
 						</tbody>
 					</table>
 				</div>

@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Mail\PermintaanDonasi;
+use App\Models\AdminRekening;
 use App\Models\Article;
 use App\Models\Panti;
 use App\Models\Program;
 use App\Models\Slider;
+use App\Models\Transaksi;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -86,23 +89,45 @@ class IndexController extends Controller
     public function donasi($id_program)
     {
         $title = "Donasi";
-
-        return view('page.donasi')->with(compact('title', 'id_program'));
+        $rekening = AdminRekening::get();
+        return view('page.donasi')->with(compact('title', 'id_program', 'rekening'));
     }
 
-    public function donasiProses($id, Request $r)
+    public function donasiProses(Request $r)
     {
-        $details = [
-            'title' => 'admin@soscomm.org',
-            'body' => 'Silahkan Kirim donasi ke rek 123123 a/n SOSCOMM'
-        ];
+        $bank = AdminRekening::where('foto', '!=', null)
+            ->orWhere('nama', '!=', null)
+            ->orWhere('norek', '!=', null)
+            ->get();
 
         if (Gate::allows('isDonatur')) {
+
+            $a = new Transaksi;
+            $a->user_id = Auth::user()->id;
+            $a->program_id = $r->id_p;
+            $a->jumlah = $r->jumlah;
+            $a->save();
+
+            $details = [
+                'nama' => Auth::user()->name,
+                'email' => Auth::user()->email,
+                'hp' => Auth::user()->hp,
+                'jumlah' => $r->jumlah,
+                'bank' => $bank,
+            ];
+
             Mail::to(Auth::user()->email)->send(new PermintaanDonasi($details));
 
             return redirect()->back()->with('berhasil', Auth::user()->email);
         }
 
+        $details = [
+            'nama' => $r->name,
+            'email' => $r->email,
+            'hp' => $r->hp,
+            'jumlah' => $r->jumlah,
+            'bank' => $bank,
+        ];
         Mail::to($r->email)->send(new PermintaanDonasi($details));
 
         return redirect()->back()->with('berhasil', $r->email);

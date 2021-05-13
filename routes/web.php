@@ -84,11 +84,14 @@ Route::prefix('donatur')->middleware(['can:isDonatur'])->group(function () {
     Route::get('/profil', [ProfilController::class, 'index']);
     Route::get('/dashboard', [ProfilController::class, 'index'])->name('donatur.dashboard');
     Route::post('/ubah-profil', [ProfilController::class, 'ubahProfil']);
+    Route::get('/donasi-delete/{id}', [ProfilController::class, 'donasiDelete']);
 });
 
 Route::prefix('admin')->middleware(['can:isAdmin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/input-rek', [DashboardController::class, 'inputRek']);
+    Route::post('/input-rek-submit', [DashboardController::class, 'inputRekSubmit']);
 
     Route::get('/panti', [PantiController::class, 'index']);
     Route::get('/add-panti', [PantiController::class, 'addPanti']);
@@ -102,6 +105,9 @@ Route::prefix('admin')->middleware(['can:isAdmin'])->group(function () {
     Route::post('/add-program-donasi-submit', [ProgramDonasiController::class, 'addProgramDonasiSubmit']);
     Route::get('/edit-program-donasi/{id}', [ProgramDonasiController::class, 'editProgramDonasi']);
     Route::post('/edit-program-donasi-submit', [ProgramDonasiController::class, 'editProgramDonasiSubmit']);
+    Route::get('/acc-donasi', [ProgramDonasiController::class, 'accDonasi']);
+    Route::get('/acc-donasi-acc/{id}', [ProgramDonasiController::class, 'accDonasiAcc']);
+    Route::get('/acc-donasi-delete/{id}', [ProgramDonasiController::class, 'accDonasiDelete']);
 
     Route::get('/donatur', [DonaturController::class, 'index']);
 

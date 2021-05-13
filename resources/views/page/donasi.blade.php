@@ -28,7 +28,9 @@
 						<div class="col-sm">
 							<input type="text" name="nama" class="form-control mt-2" placeholder="Nama Lengkap" required>
 							<input type="email" name="email" class="form-control mt-2" placeholder="Email" required>
-							<input type="number" name="hp" class="form-control mt-2" placeholder="Nomor Telepon" required> </div>
+							<input type="number" name="hp" class="form-control mt-2" placeholder="Nomor Telepon" required>
+							<input type="number" name="jumlah" class="form-control mt-2" placeholder="Jumlah" required>
+                        </div>
 						<div class="col-sm"> </div>
 					</div>
 				</div>
@@ -39,19 +41,26 @@
 					<div class="row">
 						<div class="col-sm"> </div>
 						<div class="col-sm text-center">
+                            <input type="hidden" name="id_p" value="{{$id_program}}">
+                            @can('isDonatur')
+                            <div class="form-group mb-2">
+                                <input type="number" name="jumlah" class="form-control" placeholder="jumlah donasi" required>
+                            </div>
+                            <hr>
+                            @endcan
 							<h4 class="mb-4">Pilih Metode Pembayaran</h4>
-							<div class="form-check mb-2">
-								<input class="form-check-input mt-5" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <img src="{{asset('assets/images/smiling2.jpg')}}" style="width: 200px;">
+                            @foreach ($rekening as $r)
+                            @if(!empty($r->bank) || !empty($r->nama) || !empty($r->norek))
+                            @endif
+							<div class="form-group mb-2">
+                                <img src="{{asset('assets/images/rek_admin/'.$r->foto)}}" style="width: 150px;">
                             </div>
-							<div class="form-check">
-								<input class="form-check-input mt-5" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                <img src="{{asset('assets/images/smiling2.jpg')}}" style="width: 200px;">
+                            <div class="form-group mb-2">
+                                <h5>BANK : {{$r->bank}}</h5>
+                                <h5>Atas Nama : {{$r->nama}}</h5>
+                                <h5>Nomor Rekening : {{$r->norek}}</h5>
                             </div>
-							<div class="form-check mt-2">
-								<input class="form-check-input mt-5" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                <img src="{{asset('assets/images/smiling2.jpg')}}" style="width: 200px;">
-                            </div>
+                            @endforeach
 							<div class="form-check mt-3">
 								<input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
 								<label class="form-check-label" for="defaultCheck1" style="font-size: 80%;"> Saya setuju dengan <a href="#">Syarat & Ketentuan</a> Kapiler Indonesia </label>

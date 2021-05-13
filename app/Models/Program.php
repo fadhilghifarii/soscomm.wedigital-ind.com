@@ -13,4 +13,9 @@ class Program extends Model
     {
         return $this->belongsTo(Panti::class);
     }
+
+    public function transaksi()
+    {
+        return $this->hasOne(Transaksi::class);
+    }
 }

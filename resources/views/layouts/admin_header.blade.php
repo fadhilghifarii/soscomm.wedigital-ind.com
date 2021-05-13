@@ -42,6 +42,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/admin/article')}}">Article</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/admin/input-rek')}}">Input No Rekening</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{url('/admin/acc-donasi')}}">Acc Donasi</a>
+                          </li>
                       </ul>
 
                 </div>
