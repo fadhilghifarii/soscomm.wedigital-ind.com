@@ -13,6 +13,7 @@ use App\Models\Transaksi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
 
@@ -26,8 +27,24 @@ class IndexController extends Controller
         $program = Program::orderBy('id', 'desc')->limit(6)->get();
         $program_count = Program::orderBy('id', 'desc')->limit(6)->count();
         $panti = Panti::orderBy('id', 'desc')->limit(6)->get();
+        $artikel = Article::orderBy('id', 'desc')->limit(3)->get();
+        $c_panti = Panti::count();
+        $c_donatur = User::where('role', 'donatur')->count();
+        $c_anak = Panti::select([
+            'id',
+            DB::raw("SUM(t_pria+t_wanita) as total_anak")
+        ])
+            ->groupBy('id')
+            ->get();
 
-        return view('page.index')->with(compact('title', 'slider', 'program', 'program_count', 'panti'));
+        $total_anak = 0;
+        foreach ($c_anak as $c) {
+            $total_anak += ($c['total_anak']);
+        }
+
+        // dd($total_anak);
+
+        return view('page.index')->with(compact('title', 'slider', 'program', 'program_count', 'panti', 'c_panti', 'artikel', 'c_donatur', 'total_anak'));
     }
 
     public function viewProgramDonasi()

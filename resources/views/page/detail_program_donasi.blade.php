@@ -71,7 +71,7 @@
                         {!! $p->deskripsi !!}
                         <hr>
                         <div class="text-center mb-3">
-                            <a href="{{url('/donasi')}}"><button class="btn btn-primary">Donasi</button></a>
+                            <a href="{{url('/donasi/'.$p->id)}}"><button class="btn btn-primary">Donasi</button></a>
                         </div>
                       </div>
                     </div>

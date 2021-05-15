@@ -66,38 +66,32 @@
 <div class="container" style="margin-top:2%;">
 	<div class="row text-center">
 		<div class="col-sm">
-			<div class="card mx-auto" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
+			<div class="card mx-auto" style="width: 15rem;">
+                <i class="fa fa-home fa-5x mx-auto"></i>
 				<div class="card-body">
-					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+					<h6 class="card-subtitle mb-2 text-muted">Jumlah Panti Tergabung</h6>
 					<hr>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<h2>{{$c_panti}}</h2>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm">
-			<div class="card mx-auto" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
+			<div class="card mx-auto" style="width: 15rem;">
+                <i class="fa fa-instagram fa-5x mx-auto"></i>
 				<div class="card-body">
-					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+					<h6 class="card-subtitle mb-2 text-muted">Jumlah Anak Panti</h6>
 					<hr>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<h2>{{$total_anak}}</h2>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm">
-			<div class="card mx-auto" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
+			<div class="card mx-auto" style="width: 15rem;">
+                <i class="fa fa-users fa-5x mx-auto"></i>
 				<div class="card-body">
-					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+					<h6 class="card-subtitle mb-2 text-muted">Jumlah Donatur</h6>
 					<hr>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm">
-			<div class="card mx-auto" style="width: 15rem;"> <i class="fa fa-instagram fa-5x mx-auto"></i>
-				<div class="card-body">
-					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-					<hr>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<h2>{{$c_donatur}}</h2>
 				</div>
 			</div>
 		</div>
@@ -283,6 +277,39 @@
 		</div>
 	</div> --}}
 </div>
+
+    <!--Grid 6 items-->
+            <div style="padding-bottom:1%;">
+              <div class="container de-flex justify-content-center" style="margin-top: 7%; ">
+                      <h5 class="text-center pt-3">Article</h5>
+                      <hr>
+                      <div class="row de-flex">
+                          @foreach ($artikel as $a)
+                          <div class="col-sm">
+                              <div class="card" style="width: auto;">
+                                  <i class="fa fa-phone fa-5x mx-auto"></i>
+                                  <div class="card-body">
+                                      <a href="#"><h6 class="card-subtitle mb-2 text-muted">{{$a->judul}}</h6></a>
+                                      <hr>
+                                      <p class="card-text">{!! \Illuminate\Support\Str::limit($a->deskripsi, 500, '...') !!}</p>
+                                  </div>
+                              </div>
+                          </div>
+                          @endforeach
+                      </div>
+                    </div>
+                    <!--New line-->
+                    <div class="container de-flex justify-content-center mt-4">
+
+                          <div class="row">
+                                  <div class="col text-center mt-2">
+                                    <a href="#"><button class="btn btn-primary" style="background-color: #fc3c3c;">See More</button></a>
+                                  </div>
+                                </div>
+                        </div>
+                  </div>
+
+
 <!--Info Box-->
 <div class="container" style="margin-top: 5%;">
 	<h5 class="text-center">Info Box </h5>
@@ -294,8 +321,10 @@
 					<div class="col-sm" style="margin: auto;"> <i class="fa fa-globe fa-5x"></i> </div>
 					<div class="col-sm-7">
 						<h6>Data Valid</h6>
-						<p style="font-size: 70%;"> Kapiler memastikan bahwa panti asuhan yang telah bermitra sudah terverifikasi dan valid secara legalitas. Sehingga memberikan rasa aman dan dapat dipertanggungjawabkan.</p>
-					</div>
+                        <p style="font-size: 70%;"> Soscomm memastikan bahwa panti
+                            asuhan yang telah bermitra sudah terverifikasi dan valid secara legalitas.
+                            Sehingga memberikan rasa aman dan dapat dipertanggungjawabkan.</p>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -305,8 +334,10 @@
 					<div class="col-sm" style="margin: auto;"> <i class="fa fa-code fa-5x"></i> </div>
 					<div class="col-sm-7">
 						<h6>Tepat Sasaran</h6>
-						<p style="font-size: 70%;">Kapiler menghadirkan daftar kebutuhan yang mendesak yang diperlukan oleh panti asuhan mitra. Sehingga bantuan yang diterima tepat sasaran.</p>
-					</div>
+                        <p style="font-size: 70%;">Somcomm menghadirkan daftar kebutuhan yang mendesak
+                            yang diperlukan oleh panti asuhan mitra. Sehingga bantuan
+                            yang diterima tepat sasaran.</p>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -316,8 +347,10 @@
 					<div class="col-sm" style="margin: auto;"> <i class="fa fa-file fa-5x"></i> </div>
 					<div class="col-sm-7">
 						<h6>Mudah Berdonasi</h6>
-						<p style="font-size: 70%;">Kapiler memberikan kemudahan bagi seluruh donatur untuk menyampaikan donasinya melalui platform online dan customer service yang responsif.</p>
-					</div>
+                        <p style="font-size: 70%;">Soscom memberikan kemudahan
+                                  bagi seluruh donatur untuk menyampaikan donasinya melalui
+                                  platform online dan customer service yang responsif.</p>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -334,7 +367,8 @@
 			<button type="button" class="btn btn-lg btn-primary" style="background-color: #fc3c3c;"><i class="fa fa-whatsapp"></i> Consultation Whatsapp</button>
 		</div>
 	</div>
-</div> @endsection @section('script')
+</div>
+@endsection @section('script')
 <script>
 //Get the button
 var mybutton = document.getElementById("myBtn");

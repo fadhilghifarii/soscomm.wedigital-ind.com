@@ -29,7 +29,7 @@
 							<input type="text" name="nama" class="form-control mt-2" placeholder="Nama Lengkap" required>
 							<input type="email" name="email" class="form-control mt-2" placeholder="Email" required>
 							<input type="number" name="hp" class="form-control mt-2" placeholder="Nomor Telepon" required>
-							<input type="number" name="jumlah" class="form-control mt-2" placeholder="Jumlah" required>
+							<input type="number" name="jumlah" class="form-control mt-2" placeholder="Nominal yang akan di donasikan" required>
                         </div>
 						<div class="col-sm"> </div>
 					</div>

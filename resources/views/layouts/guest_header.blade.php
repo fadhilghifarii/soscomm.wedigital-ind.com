@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link href="" rel="icon">
-    <title>Donasi - {{$title}}</title>
+    <link href="{{asset('assets/images/logo-icon.png')}}" rel="icon">
+    <title>Soscomm - {{$title}}</title>
     @yield('link')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -57,7 +57,9 @@
     <nav class="navbar navbar-expand-md shadow-sm p-3 mb-5 fixed-top" style="background-color: #150059;">
 
 
-        <a href="/" class="navbar-brand text-dark">Logo</a>
+        <a href="/" class="navbar-brand text-dark">
+            <img src="{{asset('assets/images/logo.png')}}" height="50">
+        </a>
         <button type="button" class="navbar-toggler navbar-light" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon navbar-light"></span>
         </button>
@@ -91,45 +93,46 @@
         </div>
     </nav>
 
+
     @yield('content')
 
     <footer class="bg-light text-dark">
         <div class="container pt-2">
                 <div class="row">
                   <div class="col-sm">
-                      <h4 style="margin-top:2%;">Berdayakan Panti Bersama Kapiler Indonesia! <br>_______</h4>
-                       <p>Kapiler Indonesia adalah sebuah platform online
-                            yang bergerak dalam pemetaan dan pemberdayaan panti
-                            asuhan seluruh indonesia</p>
-                        <p>Digital Innovation Lounge, Jln Karya Pemuda no.2, Beji Timur, Kecamatan Beji, Kota Depok 16422</p>
+                      <h4 style="margin-top:2%;">SOS Community <br>_______</h4>
+                       <p>Menghadapi tantangan masa depan, sosial - ekonomi menjadi salah satu faktor
+                        yang sangat penting dan perlu didukung oleh seluruh kekuatan elemen bangsa untuk
+                        mewujudkan tuntutan dari hati nurani seluruh lapisan masyarakat khususnya Generasi
+                        Muda yang memiliki jiwa kemandirian dan kemakmuran.<br> Let's get started !</p>
+                    <p>SOSComm <br>
+                        Jalan Progo No 61 Donan Cilacap Jawa Tengah - Indonesia</p>
                   </div>
                   <div class="col-sm">
                         <h4 style="margin-top:2%;">Media Sosial !<br>_______</h4>
-                        <i class="fa fa-instagram"></i> Intagram <br>
-                        <i class="fa fa-facebook"></i> Facebook <br>
-                        <i class="fa fa-twitter"></i> Twitter <br>
+                        <i class="fa fa-instagram"></i> @sosmoderation <br>
+                        <i class="fa fa-facebook"></i> Sosmoderation <br>
+                        <i class="fa fa-twitter"></i> Sosmoderation <br>
 
 
 
                   </div>
                   <div class="col-sm">
                         <h4 style="margin-top:2%;">Hubungi Kami<br>_______</h4>
-                        <i class="fa fa-phone"></i> 0891234567 - Fadhil <br>
-                        <i class="fa fa-phone"></i> 0812340987 - Hanan <br>
+                        <i class="fa fa-phone"></i> 081903334010 - 082183763730<br>
+                        <i class="fa fa-envelope"></i> info@soscomm.org  <br>
 
                   </div>
-                  <div class="col-sm">
-                        <h4 style="margin-top:2%;">Download Aplikasi<br>_______</h4>
-                        <img class="img-thumbnail" src="{{asset('assets/images/googleplay.png')}}">
-
-                      </div>
+                  <div class="col-sm mx-auto">
+                        <img class="mt-1 mb-2 rounded" src="{{asset('assets/images/logo-icon.png')}}" height="200">
+                    </div>
                 </div>
               </div>
 
         <!-- Copyright -->
         <div class="text-center p-3 text-dark" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2020 Copyright
-        <a class="text-dark" href="#">Company Name</a>
+        © 2021 Copyright
+        <a class="text-dark" href="#">Soscomm</a>
         </div>
         <!-- Copyright -->
     </footer>
